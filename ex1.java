@@ -1,8 +1,30 @@
 import java.util.HashMap;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
+//some idea of a TrivialDictionary using a HashMap, just for testing
+class TrivialDictionary {
+	private static HashMap<Integer, String> map = new HashMap<Integer, String>();
+	private static String[] words = { "a", "ab", "ax", "b", "c", "cr", "d",
+			"dx", "fa", "fas", "fast", "r", "ra", "rab", "rc", "t", "w", "we",
+			"wer" };
+	static {
+		for (int i = 0; i < words.length; i++) {
+			String w = words[i];
+			map.put(i, w);
+		}
+	}
+
+	public static String wordAt(int n) {
+		return map.get(n);
+		// returns null if no mapping for the key. Since our indexes are in
+		// order, it is
+		// the same thing as being out of bounds
+	}
+
+}
 
 public class ex1 {
+	
 	public static boolean isInDictionary(String searched) {
 		// I assumed the dictionary is sorted(by the definition of a
 		// dictionary).
@@ -152,26 +174,5 @@ public class ex1 {
 
 }
 
-//some idea of a TrivialDictionary using a HashMap, just for testing
-class TrivialDictionary {
-	private static HashMap<Integer, String> map = new HashMap<Integer, String>();
-	private static String[] words = { "a", "ab", "ax", "b", "c", "cr", "d",
-			"dx", "fa", "fas", "fast", "r", "ra", "rab", "rc", "t", "w", "we",
-			"wer" };
-	static {
-		for (int i = 0; i < words.length; i++) {
-			String w = words[i];
-			map.put(i, w);
-		}
-	}
-
-	public static String wordAt(int n) {
-		return map.get(n);
-		// returns null if no mapping for the key. Since our indexes are in
-		// order, it is
-		// the same thing as being out of bounds
-	}
-
-}
 
 
