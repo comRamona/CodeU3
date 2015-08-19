@@ -7,7 +7,7 @@ public class ex1 {
 		// Since we do not know the size of the dictionary, start with a
 		// superior limit that can halve very fast if it's out of bounds
 		//[min,max] is the interval of searching
-		int max = Integer.MAX_VALUE; // upper limit
+		int max = 1000; // upper limit, can double later
 		int min = 0; // lower limit
 		boolean found = false;
 		while (found == false && min < max) 
