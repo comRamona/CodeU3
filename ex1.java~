@@ -20,8 +20,7 @@ public class ex1 {
 			if (word == null)
 				max = (max+min) / 2; 
 			// if index is out of bounds, set upper limit at half the interval
-			else {
-          // this works like the binary search algorithm, except we work with the upper bound
+			else { // this works like the binary search algorithm
 				if (word.equals(searched))
 					found = true;
 				if (searched.compareTo(word) > 0)
