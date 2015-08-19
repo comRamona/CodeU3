@@ -114,7 +114,6 @@ public class ex1 {
 			// if index is out of bounds, set upper limit at half the interval
 			else { // this works like the binary search algorithm
 				knownWords.put(max,word);
-				char fletter=word.charAt(0);
 				if (word.equals(searched))
 					found = true;
 				if (searched.compareTo(word) > 0)
