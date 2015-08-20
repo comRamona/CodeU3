@@ -79,7 +79,7 @@ public class ex1 {
 	        while (min <= max) {
 	            int mid = min + (max - min) / 2;
 	            String word=TrivialDictionary.wordAt(mid);
-	            System.out.println(mid); //to see the laving process
+	            System.out.println(mid); //to see the halving process
 	            if(word==null) max=mid-1; //out of bounds, try first half
 	            else{
 	            if      (searched.compareTo(word)<0) max = mid - 1;
