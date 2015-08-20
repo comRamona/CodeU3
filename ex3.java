@@ -35,7 +35,7 @@ public class ex3 {
 	public int select(int[] arr, int lo, int hi, int n) {
 		if (lo < hi)  //only make sense if we have more than 1 element in the subarray
          {
-			int p = partition(arr, lo, hi);
+			int p = partition(arr, lo, hi);  //get pivot position(this is the pth element)
 
 			if (n < p)
             //we need a number with less numbers that are bigger than it, continue on the left
@@ -44,7 +44,7 @@ public class ex3 {
             //we need a bigger position, continue on the right
 				return select(arr, p + 1, hi, n);
 			else
-            //we found it
+            //we found it, p==n
 				return arr[p];
 
 		}
@@ -56,7 +56,7 @@ public class ex3 {
 		int i = lo;
 		int j = hi + 1;
 		while (true) {
-			while (arr[++i] > p)
+			while (arr[++i] > p)  //stop when we find a smaller number than p that should be put in the left side
 				if (i == hi)
 					break;
 			while (arr[--j] < p)
