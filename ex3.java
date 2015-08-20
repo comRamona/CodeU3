@@ -1,17 +1,22 @@
 /*
-Algorithm does not seem exactly right when there are duplicates in the matrix (i.e. for {2,3,3,9] 3rd largest is 3, not 2 as it would be intuitively).
+Algorithm does not seem exactly right when there are duplicates in the matrix (i.e. for {2,3,3,9] 3rd 
+largest is 3, not 2 as it would be intuitively).
 On samples with no duplicates it works fine.
 
 My idea was to use quicksort to sort the matrix descending.
 This method uses divide et conquer.
-We choose a pivot(the irst element in a subarray) and put all the elements that are bigger or equal to it to its left an those that are less or equal to its right. After this,
+We choose a pivot(the irst element in a subarray) and put all the elements that are bigger or equal to it to 
+its left an those that are less or equal to its right. After this,
 the pivot is in its right place so we return its position.
-At every step, check if the final position of the pivot matches our input n. If it does, it means the pivot has n-1 numbers bigger than it to its left, so the pivot is the nth 
+At every step, check if the final position of the pivot matches our input n. If it does, it means the pivot 
+has n-1 numbers bigger than it to its left, so the pivot is the nth 
 largest number and we are done..
-If it's bigger than we need, keep searching in the subarray until the index, because we need less numbers to the pivot's left. (this is the divide/partitioning step)
+If it's bigger than we need, keep searching in the subarray until the index, because we need less numbers to 
+the pivot's left. (this is the divide/partitioning step)
 If it's smaller, keep searching from the index onwards, because we need more numbers.
 
-It might be a good idea to check the input. If we want te nth largest number where n is bigger than length/2, we could find the (length-n) smallest number, as it is less to search.
+It might be a good idea to check the input. If we want te nth largest number where n is bigger than length/2,
+we could find the (length-n) smallest number, as it is less to search.
 */
 
 import java.util.Arrays;
@@ -72,7 +77,7 @@ public class ex3 {
 		return j;
 	}
 
-   //method to swap 2 array elements
+        //method to swap 2 array elements
 
 	private void swap(int[] arr, int i, int j) {
 		int temp = arr[i];
