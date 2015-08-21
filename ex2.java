@@ -17,7 +17,7 @@ public class ex2 {
 		//alternating calls to next and previous will return the same element repeatedly.
 		//get previous element in case the next one does not match anymore after calling nr==i.next() 
 		 
-		nr=(Integer) i.previous();
+            nr=(Integer) i.previous();
 	    int count=0;
 	    while(nr==i.next()){
 	    	count++;

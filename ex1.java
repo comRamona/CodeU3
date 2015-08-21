@@ -1,6 +1,5 @@
 import java.util.HashMap;
 
-
 //some idea of a TrivialDictionary using a HashMap, just for testing
 class TrivialDictionary {
 	private static HashMap<Integer, String> map = new HashMap<Integer, String>();
@@ -24,14 +23,13 @@ class TrivialDictionary {
 }
 
 public class ex1 {
-	
 	public static boolean isInDictionary(String searched) {
 		// I assumed the dictionary is sorted(by the definition of a
 		// dictionary).
 		// Since we do not know the size of the dictionary, start with a
 		// superior limit that can halve very fast if it's out of bounds
 		//[min,max] is the interval of searching
-		int max = Integer.MAX_VALUE; // upper limit
+		int max = 1000; // upper limit
 		int min = 0; // lower limit
 		boolean found = false;
 		while (found == false && min < max) 
@@ -81,7 +79,7 @@ public class ex1 {
 	        while (min <= max) {
 	            int mid = min + (max - min) / 2;
 	            String word=TrivialDictionary.wordAt(mid);
-	            System.out.println(mid); //to see the laving process
+	            System.out.println(mid); //to see the halving process
 	            if(word==null) max=mid-1; //out of bounds, try first half
 	            else{
 	            if      (searched.compareTo(word)<0) max = mid - 1;
@@ -114,6 +112,7 @@ public class ex1 {
 			// if index is out of bounds, set upper limit at half the interval
 			else { // this works like the binary search algorithm
 				knownWords.put(max,word);
+				char fletter=word.charAt(0);
 				if (word.equals(searched))
 					found = true;
 				if (searched.compareTo(word) > 0)
@@ -167,7 +166,7 @@ public class ex1 {
 		found = isInDictionaryOptimized("r");
 		System.out.println(found);
 		System.out.println(knownWords.toString());
-		System.out.println(binarySearch("fast"));
+		System.out.println(binarySearch("fast")); //not nice
 		}
 	}
 
