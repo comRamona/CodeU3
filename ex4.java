@@ -80,7 +80,7 @@ class QIterator {
 				String s = String.valueOf((double) (nextTime - currentTime));
 				if (isFirst)
 					return "0.0"; // first query, just 0
-				return s; // replace "<NEWQUERY>" String
+				return s; // replace the old "<NEWQUERY>" String
 			} else
 				return null; // no more words and no more queries
 
@@ -113,8 +113,7 @@ public class ex4 {
 		Query q2 = new Query("   and a query I will be ...   ",
 				System.currentTimeMillis() + 20);
 		Query q3 = new Query("until the end of time!",
-				System.currentTimeMillis() + 60); // 40 miliseconds distante to
-													// first query
+				System.currentTimeMillis() + 60); // 40 miliseconds distance to the first query
 		qs.add(q1);
 		qs.add(q2);
 		qs.add(q3);
