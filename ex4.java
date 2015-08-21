@@ -12,8 +12,7 @@ class QueryStream {
 	public void add(Query q) {
 		queries.add(q);
 	}
-    
-   //generate iterator to get words from queries
+
 	public QIterator iterator() {
 		it = new QIterator(queries);
 		return it;
@@ -78,9 +77,9 @@ class QIterator {
 				len = words.length;
 				index = 0; // prepare to later get first word
 				nextTime = current.getTimestamp();
-				String s = String.valueOf(nextTime - currentTime);
+				String s = String.valueOf((double) (nextTime - currentTime));
 				if (isFirst)
-					return "0"; // first query, just 0
+					return "0.0"; // first query, just 0
 				return s; // replace "<NEWQUERY>" String
 			} else
 				return null; // no more words and no more queries
