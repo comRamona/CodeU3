@@ -37,6 +37,8 @@ class Query {
 	}
 }
 
+//I based my logic on using an index for navigating the words in a query and setting it
+//to -1 when we pass the last word
 class QIterator {
 	private LinkedList<Query> queries;
 	private Iterator<Query> it;
