@@ -90,41 +90,29 @@ public class ex1 {
 	        return false;
 	    }
 
+        //do the same thing as isInDictionary, but save results in a hashmap
 	private static HashMap<Integer,String> knownWords=new HashMap<Integer,String>();
 	public static boolean isInDictionaryOptimized(String searched) {
-		// I assumed the dictionary is sorted(by the definition of a
-		// dictionary).
-		// Since we do not know the size of the dictionary, start with a
-		// superior limit that can halve very fast if it's out of bounds
-		//[min,max] is the interval of searching
 		int max = 1000; // upper limit
 		int min = 0; // lower limit
 		boolean found = false;
 		while (found == false && min < max) 
-		// stop when word is found or when  the lower limit becomes
-		// bigger than the upper one
-		{  String word=knownWords.get(max);
-			if(word==null) word = TrivialDictionary.wordAt(max);
-			System.out.println(max + " = " + word + " -> " + min); 
-			// this helps for debugging, shows what happens at every step
-			if (word == null)
+		{  String word=knownWords.get(max);  //see if previously searched
+			if(word==null) word = TrivialDictionary.wordAt(max);  //if not, use TrivialDictionary
+			if (word == null)   //out of bounds, evend in TrivialDictionary, halve the interval
 				max = (max+min) / 2; 
-			// if index is out of bounds, set upper limit at half the interval
-			else { // this works like the binary search algorithm
+			else { 
 				knownWords.put(max,word);
-				char fletter=word.charAt(0);
+				
 				if (word.equals(searched))
 					found = true;
 				if (searched.compareTo(word) > 0)
-				// our searched word is "bigger" than the upper limit, set lower
-				// limit there and double upper limit
+			
 				{
 					min = max;
 					max = max * 2;
 				}
 				if (searched.compareTo(word) < 0)
-				// the other case, set upper limit at half the interval
-				// and let the lower limit as it was
 				{
 					max = (max+min) / 2;
 
@@ -134,7 +122,7 @@ public class ex1 {
 			}
 
 		}
-		System.out.println("final:"); // show last call before stopping
+
 		String word = TrivialDictionary.wordAt(max);
 		System.out.println(max + " = " + word + " -> " + min);
 
