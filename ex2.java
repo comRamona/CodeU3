@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 
+// Note: Class name should normally be Uppercase (`Ex2` in your case).
 public class ex2 {
   public static Integer hasMajority(ArrayList<Integer> list){
     

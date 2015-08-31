@@ -6,6 +6,9 @@ class TrivialDictionary {
 	private static String[] words = { "a", "ab", "ax", "b", "c", "cr", "d",
 			"dx", "fa", "fas", "fast", "r", "ra", "rab", "rc", "t", "w", "we",
 			"wer" };
+    // If you are doing all this work to organise them, would it not be more
+    // convenient to just add all the words into a `HashSet` and just look them
+    // up from there?
 	static {
 		for (int i = 0; i < words.length; i++) {
 			String w = words[i];
@@ -14,6 +17,8 @@ class TrivialDictionary {
 	}
 
 	public static String wordAt(int n) {
+        // Is this not the same as returning `words[n]` while catching
+        // index OOB exceptions?
 		return map.get(n);
 		// returns null if no mapping for the key. Since our indexes are in
 		// order, it is
@@ -37,6 +42,9 @@ public class ex1 {
 		// bigger than the upper one
 		{
 			String word = TrivialDictionary.wordAt(max);
+            // Note that in practice you would probably not write to STDOUT
+            // unless it was requested by the problem. If this is for debugging,
+            // it should probably go to STDERR.
 			System.out.println(max + " = " + word + " -> " + min); 
 			// this helps for debugging, shows what happens at every step
 			if (word == null)
@@ -91,6 +99,8 @@ public class ex1 {
 	    }
 
         //do the same thing as isInDictionary, but save results in a hashmap
+    // Will `knownWords` approximate the map inside the dictionary as you do more queries?
+    // If so, you may as well use that directly, right?
 	private static HashMap<Integer,String> knownWords=new HashMap<Integer,String>();
 	public static boolean isInDictionaryOptimized(String searched) {
 		int max = 1000; // upper limit
