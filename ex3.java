@@ -18,6 +18,8 @@ If it's smaller, keep searching from the index onwards, because we need more num
 It might be a good idea to check the input. If we want te nth largest number where n is bigger than length/2,
 we could find the (length-n) smallest number, as it is less to search.
 */
+// Thanks for all the detailed explanation, it is one of the most useful things you can do when
+// writing code that will be read and used by other people (but also just for yourself).
 
 import java.util.Arrays;
 
@@ -29,6 +31,7 @@ public class ex3 {
 	}
 
 	public int nthLargest(int n) throws Exception {
+        // What if n < 0?
 		if (arr.length < n || n == 0) {
 			throw new Exception("Choose a different number");
 		} else {
@@ -56,6 +59,8 @@ public class ex3 {
 		return arr[lo];
 	}
 
+    // It seems like this would work, but if you want to think about an alternative approach, try
+    // using `PriorityQueue` instead.
 	private int partition(int[] arr, int lo, int hi) {
 		int p = arr[lo];
 		int i = lo;
@@ -108,3 +113,6 @@ public class ex3 {
 	}
 }
 
+// Final grade: B. Some of the solutions are probably over-engineered and could be solved in more
+// elegant ways, but it's great to see you try your ideas, and also detail your assumptions and
+// approach in comments!
